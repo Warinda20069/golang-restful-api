@@ -8,3 +8,6 @@ go install github.com/cosmtrek/air@latest
 
 # install gin
 go get -u github.com/gin-gonic/gin
+
+# install generate file name image
+go get github.com/google/uuid
