@@ -19,7 +19,7 @@ go get -u gorm.io/gorm
 go get -u gorm.io/driver/mysql
 
 # MySql Server use Docker
-install Ubunto in Microsoft Store 
-install Docker Desktop
-Download the Linux kernel update package (WSL2 Linux kernel update package for x64 machines)
+install Ubunto in Microsoft Store <br />
+install Docker Desktop <br />
+Download the Linux kernel update package (WSL2 Linux kernel update package for x64 machines) <br />
 add file docker-compose.yml and setting up follow link (https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee)
