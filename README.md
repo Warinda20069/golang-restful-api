@@ -1,4 +1,4 @@
-# golang-restful-api
+# golang-restful-api for Beginner
 
 # go mod init -> Module name
 go mod init .....  (module name)
@@ -23,3 +23,6 @@ install Ubunto in Microsoft Store <br />
 install Docker Desktop <br />
 Download the Linux kernel update package (WSL2 Linux kernel update package for x64 machines) <br />
 add file docker-compose.yml and setting up follow link (https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee)
+
+# install godotenv (hide some file)
+go get github.com/joho/godotenv

@@ -1,13 +1,18 @@
 package main
 
 import (
+	"log"
 	"os"
 	"wunkyyy-pos/db"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	db.ConnectDB()
 
 	os.MkdirAll("uploads/products", 0755)

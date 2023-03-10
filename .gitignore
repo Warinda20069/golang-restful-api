@@ -1,2 +1,5 @@
 #Database Folder
 my-db/
+
+#env
+.env
