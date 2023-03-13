@@ -23,7 +23,6 @@ func ConnectDB() {
 	}
 
 	Conn = db
-	log.Fatal("Connect to the database......")
 }
 
 // นำ Model ไปสร้างเป็น Table
