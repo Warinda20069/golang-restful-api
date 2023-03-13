@@ -14,6 +14,7 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 	db.ConnectDB()
+	db.Migrate()
 
 	os.MkdirAll("uploads/products", 0755)
 
