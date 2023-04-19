@@ -13,11 +13,11 @@ type Product struct{}
 func (p Product) FindAll(ctx *gin.Context) {
 	// /products?search=tu
 	search := ctx.Query("search")
-	categoryId := ctx.Query("categoryId")
+	categoryID := ctx.Query("categoryId")
 	ctx.JSON(http.StatusOK, gin.H{
 		"FindAll":    "OK",
 		"Search":     search,
-		"CategoryID": categoryId,
+		"CategoryID": categoryID,
 	})
 }
 
