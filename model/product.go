@@ -10,7 +10,7 @@ type Product struct {
 	Price      float64
 	Status     uint   `gorm:"not null"`
 	Image      string `gorm:"type:varchar(255);not null"`
-	CategoryID uint
+	CategoryID uint   `gorm:"not null"`
 	Category   Category
 }
 
