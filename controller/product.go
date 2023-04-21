@@ -2,7 +2,9 @@ package controller
 
 import (
 	"net/http"
+	"wunkyyy-pos/db"
 	"wunkyyy-pos/dto"
+	"wunkyyy-pos/model"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -19,6 +21,9 @@ func (p Product) FindAll(ctx *gin.Context) {
 		"Search":     search,
 		"CategoryID": categoryID,
 	})
+
+	var products []model.Product
+	db.Conn.Find(&products)
 }
 
 func (p Product) FindOne(ctx *gin.Context) {
@@ -42,7 +47,32 @@ func (p Product) Create(ctx *gin.Context) {
 	imagePath := "./uploads/products/" + uuid.New().String()
 	ctx.SaveUploadedFile(image, imagePath)
 
-	ctx.JSON(http.StatusOK, gin.H{"name": form.Name, "ImagePath": imagePath})
+	product := model.Product{
+		SKU:        form.SKU,
+		Name:       form.Name,
+		Desc:       form.Desc,
+		Price:      form.Price,
+		Status:     form.Status,
+		CategoryID: form.CategoryID,
+		Image:      imagePath,
+	}
+
+	if err := db.Conn.Create(&product).Error; err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Return data JSON
+	ctx.JSON(http.StatusCreated, dto.ProductResponse{
+		ID:         product.ID,
+		SKU:        product.SKU,
+		Name:       product.Name,
+		Desc:       product.Desc,
+		Price:      product.Price,
+		Status:     product.Status,
+		CategoryID: product.CategoryID,
+		Image:      product.Image,
+	})
 }
 
 func (p Product) Update(ctx *gin.Context) {
